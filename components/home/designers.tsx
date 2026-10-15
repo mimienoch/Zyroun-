@@ -16,7 +16,7 @@ export function Designers() {
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12">
         <div className="flex flex-col-reverse gap-4 md:flex-row md:items-end md:justify-between">
           <Link
-            href="#designers"
+            href="/designers"
             className="font-display text-base font-bold text-[#7b61ff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff]"
           >
             Browse all designers

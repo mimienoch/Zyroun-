@@ -6,13 +6,13 @@ import { Header } from "./header";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const howItWorks = pathname === "/how-it-works";
+  const lightChrome = pathname === "/how-it-works" || pathname === "/designers";
 
   return (
     <>
-      <Header search={howItWorks} />
+      <Header search={lightChrome} />
       {children}
-      <Footer variant={howItWorks ? "light" : "home"} />
+      <Footer variant={lightChrome ? "light" : "home"} />
     </>
   );
 }

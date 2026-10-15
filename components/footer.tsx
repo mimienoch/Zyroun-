@@ -39,7 +39,7 @@ const lightColumns = [
       { href: "/how-it-works", label: "How it Works" },
       { href: "#", label: "Pricing" },
       { href: "#", label: "Design Contests" },
-      { href: "#", label: "Browse Designers" },
+      { href: "/designers", label: "Browse Designers" },
     ],
   },
   {
