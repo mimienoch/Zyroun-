@@ -54,12 +54,14 @@ export function Testimonials() {
         <p className="mt-3 max-w-[672px] font-display text-base font-bold text-[#64748b]">
           See what others are saying about their experience.
         </p>
-        <div className="mt-10 flex flex-col items-stretch gap-6 lg:flex-row lg:items-center lg:gap-8">
+        <div className="mt-10 flex flex-col items-stretch gap-6 lg:mt-[86px] lg:flex-row lg:items-center lg:justify-center lg:gap-[13px]">
           {testimonials.map((item) => (
             <article
               key={item.name}
-              className={`flex flex-col rounded-2xl border border-[#f3f4f6] bg-[#f9fafb] p-7 ${
-                item.featured ? "lg:min-h-[288px] lg:flex-[1.1]" : "lg:flex-1"
+              className={`flex w-full flex-col rounded-2xl border border-[#f3f4f6] bg-[#f9fafb] p-7 ${
+                item.featured
+                  ? "lg:h-[288px] lg:w-[427px] lg:shrink-0"
+                  : "lg:h-[232px] lg:w-[344px] lg:shrink-0"
               }`}
             >
               <div className="mb-5 flex gap-1" aria-label="5 out of 5 stars">

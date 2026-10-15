@@ -22,7 +22,7 @@ export function Designers() {
             Browse all designers
           </Link>
           <div className="md:text-right">
-            <h2 className="font-display text-[32px] font-bold text-[#0f172a] md:text-[40px]">
+            <h2 className="font-display text-[32px] font-bold leading-none text-[#0f172a] md:text-[40px] md:leading-[40px]">
               Top Tier Talent
             </h2>
             <p className="mt-2 font-display text-base font-medium text-[#0f172a]">

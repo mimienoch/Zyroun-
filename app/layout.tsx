@@ -6,8 +6,7 @@ import {
   Plus_Jakarta_Sans,
   Poppins,
 } from "next/font/google";
-import { Footer } from "../components/footer";
-import { Header } from "../components/header";
+import { SiteChrome } from "../components/site-chrome";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -25,7 +24,7 @@ const inter = Inter({
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  style: ["italic"],
+  style: ["normal", "italic"],
   weight: ["400", "700"],
 });
 
@@ -55,9 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${plusJakarta.variable} ${inter.variable} ${playfair.variable} ${poppins.variable} ${merriweather.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-[#0f172a]">
-        <Header />
-        {children}
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

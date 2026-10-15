@@ -11,16 +11,20 @@ export function Hero() {
         >
           Start a Project
         </Button>
-        <Button href="#designers" variant="ghost">
+        <Button
+          href="#designers"
+          variant="ghost"
+          className="shadow-none! hover:shadow-none! focus-visible:shadow-none!"
+        >
           Browse Jobs
         </Button>
       </div>
       <p className="text-center font-display text-xs font-bold tracking-wide text-[#7b61ff] uppercase">
         Premium design marketplace
       </p>
-      <h1 className="max-w-[1280px] text-center font-display text-[40px] leading-[1.05] font-extrabold text-[#0f172a] md:text-[56px] md:leading-[73px] lg:text-[72px]">
+      <h1 className="max-w-[1280px] overflow-visible text-center font-display text-[40px] leading-[1.05] font-extrabold text-[#0f172a] md:text-[56px] md:leading-[73px] lg:flex lg:h-[200px] lg:flex-col lg:justify-center lg:text-[72px] lg:leading-[88px]">
         Get the perfect design.
-        <span className="block bg-gradient-to-r from-[#7b61ff] to-[#5ce1e6] bg-clip-text text-transparent">
+        <span className="block overflow-visible bg-gradient-to-r from-[#7b61ff] to-[#5ce1e6] bg-clip-text pb-2 text-transparent">
           Every single time.
         </span>
       </h1>

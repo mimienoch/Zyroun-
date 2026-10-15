@@ -32,7 +32,7 @@ export function Categories() {
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 md:gap-16">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="font-display text-[32px] font-bold text-[#0f172a] md:text-[40px]">
+            <h2 className="font-display text-[32px] font-bold leading-none text-[#0f172a] md:text-[40px] md:leading-[40px]">
               Explore categories
             </h2>
             <p className="mt-2 font-display text-base font-medium text-[#4b5563]">
@@ -46,20 +46,22 @@ export function Categories() {
             View all categories
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
+        <div className="grid justify-center gap-6 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-start">
           {imageCards.map((card) => (
             <Link
               key={card.title}
               href="#categories"
-              className={`relative overflow-hidden rounded-3xl shadow-[0px_1px_2px_rgba(0,0,0,0.05)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff] ${
-                card.tall ? "min-h-[320px] lg:h-[409px]" : "min-h-[280px] lg:h-[320px]"
+              className={`relative w-full overflow-hidden rounded-3xl shadow-[0px_1px_2px_rgba(0,0,0,0.05)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff] ${
+                card.tall
+                  ? "min-h-[320px] lg:h-[409px] lg:w-[290px]"
+                  : "min-h-[280px] lg:h-[320px] lg:w-[290px]"
               }`}
             >
               <Image
                 src={card.src}
                 alt=""
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(min-width: 1024px) 290px, (min-width: 640px) 50vw, 100vw"
               />
               <div className={`absolute inset-0 bg-gradient-to-t ${card.overlay}`} />
@@ -74,7 +76,7 @@ export function Categories() {
           ))}
           <Link
             href="#categories"
-            className="flex min-h-[280px] flex-col items-center justify-center rounded-3xl border border-[#e2e8f0] bg-white p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] lg:h-[320px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff]"
+            className="flex min-h-[280px] w-full flex-col items-center justify-center overflow-hidden rounded-3xl border border-[#e2e8f0] bg-white p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] lg:h-[320px] lg:w-[290px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff]"
           >
             <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-[#f8fafc]">
               <FigmaAsset src="/images/icon-layers-more.svg" alt="" />

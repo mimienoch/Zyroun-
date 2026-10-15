@@ -6,7 +6,7 @@ const columns = [
   {
     title: "For Clients",
     links: [
-      { href: "#how-it-works", label: "How it Works" },
+      { href: "/how-it-works", label: "How it Works" },
       { href: "#pricing", label: "Pricing" },
       { href: "#categories", label: "Design Categories" },
       { href: "#designers", label: "Find a Designer" },
@@ -32,7 +32,114 @@ const columns = [
   },
 ];
 
-export function Footer() {
+const lightColumns = [
+  {
+    title: "Platform",
+    links: [
+      { href: "/how-it-works", label: "How it Works" },
+      { href: "#", label: "Pricing" },
+      { href: "#", label: "Design Contests" },
+      { href: "#", label: "Browse Designers" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { href: "#", label: "Blog" },
+      { href: "#", label: "Help Center" },
+      { href: "#", label: "Design Tips" },
+      { href: "#", label: "Success Stories" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "#", label: "About Us" },
+      { href: "#", label: "Careers" },
+      { href: "#", label: "Privacy Policy" },
+      { href: "#", label: "Terms of Service" },
+    ],
+  },
+];
+
+const lightSocial = [
+  { src: "/images/hiw-social-1.png", label: "Zyroun on X" },
+  { src: "/images/hiw-social-2.png", label: "Zyroun on Instagram" },
+  { src: "/images/hiw-social-3.png", label: "Zyroun on LinkedIn" },
+  { src: "/images/hiw-social-4.png", label: "Zyroun on Dribbble" },
+];
+
+type FooterProps = {
+  variant?: "home" | "light";
+};
+
+export function Footer({ variant = "home" }: FooterProps) {
+  if (variant === "light") {
+    return (
+      <footer className="bg-white px-5 py-16 text-[#0f172a] md:px-20 md:py-[100px]">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-0 md:px-6">
+          <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
+            <div className="flex max-w-[464px] flex-col gap-4">
+              <Logo />
+              <p className="max-w-[384px] font-display text-sm font-medium text-[#0f172a]">
+                The premium design marketplace connecting clients
+                <br className="hidden md:block" /> with world-class designers
+                through creative contests.
+              </p>
+              <div className="flex gap-4">
+                {lightSocial.map((item) => (
+                  <a
+                    key={item.src}
+                    href="#"
+                    className="size-10 overflow-hidden rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff]"
+                    aria-label={item.label}
+                  >
+                    <FigmaAsset src={item.src} alt="" />
+                  </a>
+                ))}
+              </div>
+            </div>
+            {lightColumns.map((column) => (
+              <div key={column.title} className="w-full max-w-[208px]">
+                <h2 className="font-display text-base font-bold text-[#0f172a]">
+                  {column.title}
+                </h2>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {column.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="font-sans text-sm text-[#0f172a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff]"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-4 border-t border-[#e5e7eb] pt-8 md:flex-row md:items-center md:justify-between">
+            <p className="font-display text-sm font-medium text-[#0f172a]">
+              © 2024 Zyroun. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              {["Privacy", "Terms", "Cookies"].map((label) => (
+                <Link
+                  key={label}
+                  href="#"
+                  className="font-display text-sm font-medium text-[#0f172a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7b61ff]"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer
       id="contact"
