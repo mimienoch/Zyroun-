@@ -25,7 +25,7 @@ const columns = [
     title: "Support",
     links: [
       { href: "#contact", label: "Help Center" },
-      { href: "#contact", label: "Contact Us" },
+      { href: "/contact", label: "Contact Us" },
       { href: "#contact", label: "Terms of Service" },
       { href: "#contact", label: "Privacy Policy" },
     ],
@@ -37,7 +37,7 @@ const lightColumns = [
     title: "Platform",
     links: [
       { href: "/how-it-works", label: "How it Works" },
-      { href: "#", label: "Pricing" },
+      { href: "/pricing", label: "Pricing" },
       { href: "#", label: "Design Contests" },
       { href: "/designers", label: "Browse Designers" },
     ],

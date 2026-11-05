@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "../button";
 import { FigmaAsset } from "../figma-asset";
+import { MARKETPLACE_DESIGNERS } from "./designer-profiles";
 
 const filters = ["All Categories", "Any Location", "Availability", "Price Range"];
 
@@ -20,16 +21,20 @@ const skillTags = [
   { label: "Webflow", className: "bg-[#f0fdf4] text-[#16a34a]" },
 ];
 
-const designers = Array.from({ length: 6 }, (_, index) => ({
-  id: `naylia-${index + 1}`,
-  name: "Naylia Rhamen",
-  role: "Web Designer • Verified Client",
-  rating: "5.0",
-  reviews: "(124 reviews)",
-  bio: "Award-winning product designer specializing in B2B SaaS platforms and design systems. Helping startups…",
-  earnings: "$46,500",
+const designers = MARKETPLACE_DESIGNERS.map((designer) => ({
+  id: designer.slug,
+  slug: designer.slug,
+  name: designer.name,
+  role: designer.role,
+  rating: designer.rating.toFixed(1),
+  reviews: `(${designer.reviewCount} reviews)`,
+  bio: designer.bio[0],
+  earnings: designer.totalEarned,
   submissions: "2 per project",
-  projects: "Participated in 101  Project",
+  projects: `Participated in ${designer.jobsCompleted}  Project`,
+  avatar: designer.avatar,
+  online: designer.online,
+  skills: designer.skills.slice(0, 3),
 }));
 
 export function DesignersPage() {
@@ -116,13 +121,17 @@ export function DesignersPage() {
                 <div className="flex min-w-0 items-center gap-2">
                   <div className="relative size-20 shrink-0">
                     <Image
-                      src="/images/designer-naylia.png"
+                      src={designer.avatar}
                       alt=""
                       width={80}
                       height={80}
-                      className="size-20 rounded-full"
+                      className="size-20 rounded-full object-cover"
                     />
-                    <span className="absolute right-0 bottom-0 size-5 rounded-full border-[1.67px] border-white bg-[#16a34a]" />
+                    <span
+                      className={`absolute right-0 bottom-0 size-5 rounded-full border-[1.67px] border-white ${
+                        designer.online ? "bg-[#16a34a]" : "bg-[#d1d5db]"
+                      }`}
+                    />
                   </div>
                   <div className="min-w-0">
                     <h2 className="font-display text-lg font-bold text-[#0f172a]">
@@ -155,12 +164,14 @@ export function DesignersPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {skillTags.map((tag) => (
+                {designer.skills.map((label, index) => (
                   <span
-                    key={tag.label}
-                    className={`rounded px-3 py-1 font-display text-xs font-medium ${tag.className}`}
+                    key={label}
+                    className={`rounded px-3 py-1 font-display text-xs font-medium ${
+                      skillTags[index % skillTags.length].className
+                    }`}
                   >
-                    {tag.label}
+                    {label}
                   </span>
                 ))}
               </div>
@@ -191,7 +202,7 @@ export function DesignersPage() {
               <div className="flex items-center justify-between gap-3 border-t border-[#e5e7eb] pt-4">
                 <p className="font-display text-xs font-medium text-black">{designer.projects}</p>
                 <Button
-                  href="#"
+                  href={`/designers/${designer.slug}`}
                   variant="ghost"
                   size="lg"
                   justify="between"

@@ -18,7 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const playfair = Playfair_Display({
@@ -31,7 +31,7 @@ const playfair = Playfair_Display({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const merriweather = Merriweather({
